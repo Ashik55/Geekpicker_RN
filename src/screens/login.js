@@ -91,9 +91,8 @@ const styles = StyleSheet.create({
     borderColor: colors.borderColor,
   },
   textInput: {
-    marginTop: 10,
-    paddingTop: 14,
-    paddingBottom: 14,
+    paddingTop: 22,
+    paddingBottom: 22,
     paddingLeft: 20,
     color: colors.black,
     fontSize: 16,
