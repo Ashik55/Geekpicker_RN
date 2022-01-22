@@ -5,25 +5,25 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  View,
 } from 'react-native';
+import BackArrow from '../../assets/icons/ic_arrow_left.svg';
 
 const Login = ({navigation}) => {
   return (
-    <SafeAreaView
-      style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+    <SafeAreaView style={styles.topContainer}>
+      <BackArrow width={'30'} height={'30'} />
+      <View style={{height: 100}} />
+
       <Text> hello Login</Text>
-      <Button
-        onPress={() => navigation.navigate('registration')}
-        title="goto registration"
-      />
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  topContainer: {
+    flex: 1,
+    margin: 20,
   },
   sectionTitle: {
     fontSize: 24,
