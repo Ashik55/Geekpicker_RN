@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Button,
   SafeAreaView,
@@ -9,18 +9,29 @@ import {
   TouchableHighlight,
   TouchableOpacity,
   View,
+  Alert,
 } from 'react-native';
 import BackArrow from '../../assets/icons/ic_arrow_left.svg';
 import colors from '../utils/colors';
 import PasswordTextInput from 'react-native-password-eye';
 import {useDispatch, useSelector} from 'react-redux';
 import GlobalStyle from '../utils/GlobalStyle';
+import title from 'react-native-paper/src/components/Typography/Title';
 
 const Login = ({navigation}) => {
-  // const {email, password} = useSelector(state => state.userReducer);
-  // const dispatch = useDispatch();
+  const {email, password} = useSelector(state => state.userReducer);
+  const dispatch = useDispatch();
+  const [loginEmail, setLoginEmail] = useState('');
+  const [loginPassword, setLoginPass] = useState('');
 
-  function loginNow() {}
+  const loginNow = navigation => {
+    if (loginEmail == email && loginPassword == password) {
+      console.log('matched');
+      navigation.navigate('dashboard');
+    } else {
+      Alert.alert('Email Password wrong');
+    }
+  };
 
   return (
     <SafeAreaView style={GlobalStyle.topContainer}>
@@ -30,22 +41,25 @@ const Login = ({navigation}) => {
       <Text style={GlobalStyle.welcomeText}>Welcome</Text>
       <View style={{height: 3}} />
       <Text style={GlobalStyle.loginText}>Log in to continue</Text>
+
+      <Text style={GlobalStyle.loginText}>{email}</Text>
+      <Text style={GlobalStyle.loginText}>{password}</Text>
       <View style={{height: 40}} />
       <View style={GlobalStyle.roundedBackground}>
         <TextInput
           style={GlobalStyle.textInput}
           placeholder="YOUR EMAIL"
           placeholderTextColor={colors.hintTextColor}
-          onChangeText={text => console.log(text)}
+          onChangeText={text => setLoginEmail(text)}
         />
         <View style={{height: 1, backgroundColor: colors.borderColor}} />
 
         <TextInput
           style={GlobalStyle.textInput}
           placeholder="YOUR PASSWORD"
-          secureTextEntry={true}
+          // secureTextEntry={true}
           placeholderTextColor={colors.hintTextColor}
-          onChangeText={text => console.log(text)}
+          onChangeText={text => setLoginPass(text)}
         />
       </View>
 
@@ -64,7 +78,7 @@ const Login = ({navigation}) => {
 
       <TouchableOpacity
         style={GlobalStyle.customButton}
-        onPress={() => loginNow()}
+        onPress={() => loginNow(navigation)}
         underlayColor="#fff">
         <Text style={[GlobalStyle.buttonText]}>Log in</Text>
       </TouchableOpacity>

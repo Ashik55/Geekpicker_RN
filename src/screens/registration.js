@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Button,
   SafeAreaView,
@@ -9,16 +9,26 @@ import {
   TouchableHighlight,
   TouchableOpacity,
   View,
+  Alert,
 } from 'react-native';
 import BackArrow from '../../assets/icons/ic_arrow_left.svg';
 import colors from '../utils/colors';
 import {useDispatch, useSelector} from 'react-redux';
 import GlobalStyle from '../utils/GlobalStyle';
+import {setEmail, setPassword} from '../redux/actions';
 
 const Registration = ({navigation}) => {
-  // const {email, password} = useSelector(state => state.userReducer);
-  // const dispatch = useDispatch();
+  const {email, password} = useSelector(state => state.userReducer);
+  const dispatch = useDispatch();
+  const [switchValue, setSwitchValue] = useState(false);
 
+  const createAccount = navigation => {
+    if (switchValue == false) {
+      Alert.alert('Please Agree terms and condiion');
+    } else {
+      navigation.goBack();
+    }
+  };
   return (
     <SafeAreaView style={GlobalStyle.topContainer}>
       <View style={{height: 5}} />
@@ -36,7 +46,7 @@ const Registration = ({navigation}) => {
           style={GlobalStyle.textInput}
           placeholder="YOUR EMAIL"
           placeholderTextColor={colors.hintTextColor}
-          onChangeText={text => console.log(text)}
+          onChangeText={text => dispatch(setEmail(text))}
         />
         <View style={{height: 1, backgroundColor: colors.borderColor}} />
 
@@ -45,16 +55,13 @@ const Registration = ({navigation}) => {
           placeholder="YOUR PASSWORD"
           secureTextEntry={true}
           placeholderTextColor={colors.hintTextColor}
-          onChangeText={text => console.log(text)}
+          onChangeText={text => dispatch(setPassword(text))}
         />
       </View>
       <View style={{height: 15}} />
 
       <View style={{flexDirection: 'row', paddingRight: 55}}>
-        <Switch
-        // onValueChange={this.toggleSwitch}
-        // value={!this.state.showPassword}
-        />
+        <Switch onValueChange={setSwitchValue} value={switchValue} />
         <View style={{width: 10}} />
 
         <Text style={GlobalStyle.smallText}>
@@ -101,7 +108,7 @@ const Registration = ({navigation}) => {
 
       <TouchableOpacity
         style={GlobalStyle.customButton}
-        onPress={() => navigation.goBack()}
+        onPress={() => createAccount(navigation)}
         underlayColor="#fff">
         <Text style={[GlobalStyle.buttonText]}>Create account</Text>
       </TouchableOpacity>
