@@ -1,24 +1,23 @@
-export const SET_USER_NAME = 'SET_USER_NAME';
-export const SET_USER_AGE = 'SET_USER_AGE';
-export const INCREASE_AGE = 'INCREASE_AGE';
+export const SET_USER_EMAIL = 'SET_USER_EMAIL';
+export const SET_USER_PASSWORD = 'SET_USER_PASSWORD';
 
-export const setName = name => dispatch => {
+export const setEmail = email => dispatch => {
   dispatch({
-    type: SET_USER_NAME,
-    payload: name,
+    type: SET_USER_EMAIL,
+    payload: email,
   });
 };
 
-export const setAge = age => dispatch => {
+export const setPassword = password => dispatch => {
   dispatch({
-    type: SET_USER_AGE,
-    payload: age,
+    type: SET_USER_PASSWORD,
+    payload: password,
   });
 };
 
-export const increaseAge = age => dispatch => {
-  dispatch({
-    type: INCREASE_AGE,
-    payload: age,
-  });
-};
+// export const increaseAge = age => dispatch => {
+//   dispatch({
+//     type: INCREASE_AGE,
+//     payload: age,
+//   });
+// };
