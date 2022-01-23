@@ -48,7 +48,7 @@ const Registration = ({navigation}) => {
           placeholderTextColor={colors.hintTextColor}
           onChangeText={text => dispatch(setEmail(text))}
         />
-        <View style={{height: 1, backgroundColor: colors.borderColor}} />
+        <View style={{height: 2, backgroundColor: colors.borderColor}} />
 
         <TextInput
           style={GlobalStyle.textInput}

@@ -42,8 +42,6 @@ const Login = ({navigation}) => {
       <View style={{height: 3}} />
       <Text style={GlobalStyle.loginText}>Log in to continue</Text>
 
-      <Text style={GlobalStyle.loginText}>{email}</Text>
-      <Text style={GlobalStyle.loginText}>{password}</Text>
       <View style={{height: 40}} />
       <View style={GlobalStyle.roundedBackground}>
         <TextInput
@@ -52,7 +50,7 @@ const Login = ({navigation}) => {
           placeholderTextColor={colors.hintTextColor}
           onChangeText={text => setLoginEmail(text)}
         />
-        <View style={{height: 1, backgroundColor: colors.borderColor}} />
+        <View style={{height: 2, backgroundColor: colors.borderColor}} />
 
         <TextInput
           style={GlobalStyle.textInput}
