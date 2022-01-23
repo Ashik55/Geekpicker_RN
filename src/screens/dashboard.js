@@ -272,7 +272,7 @@ const Dashboard = () => {
               fontSize: 18,
               color: colors.black,
             }}>
-            Today, 26 February
+            Today, 27 February
           </Text>
 
           <View
