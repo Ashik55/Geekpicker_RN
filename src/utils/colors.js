@@ -12,6 +12,7 @@ const colors = {
   darkNaviBlue: '#42526E',
   descriptionColor: '#6E7F8D',
   buttonBackground: '#A09FC3',
+  walletBG: '#5652A3',
 };
 
 export default colors;

@@ -5,6 +5,7 @@ export default StyleSheet.create({
   topContainer: {
     flex: 1,
     margin: 20,
+    color: colors.white,
   },
   welcomeText: {
     color: colors.primary,
