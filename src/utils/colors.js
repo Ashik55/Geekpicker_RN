@@ -13,6 +13,8 @@ const colors = {
   descriptionColor: '#6E7F8D',
   buttonBackground: '#A09FC3',
   walletBG: '#5652A3',
+  green: '#0dab00',
+  red: '#ff4646',
 };
 
 export default colors;
