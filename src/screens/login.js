@@ -27,7 +27,7 @@ const Login = ({navigation}) => {
   const loginNow = navigation => {
     if (loginEmail == email && loginPassword == password) {
       console.log('matched');
-      navigation.navigate('dashboard');
+      navigation.navigate('tabs');
     } else {
       Alert.alert('Email Password wrong');
     }

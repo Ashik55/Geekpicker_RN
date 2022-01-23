@@ -4,6 +4,7 @@ import Login from '../screens/login';
 import Registration from '../screens/registration';
 import Dashboard from '../screens/dashboard';
 import React from 'react';
+import Tabs from './tabs';
 
 const Stack = createStackNavigator();
 
@@ -40,8 +41,8 @@ const RootNavigator = () => {
         />
 
         <Stack.Screen
-          name="dashboard"
-          component={Dashboard}
+          name="tabs"
+          component={Tabs}
           options={{
             headerShown: false,
           }}
